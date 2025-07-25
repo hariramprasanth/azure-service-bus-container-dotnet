@@ -1,3 +1,7 @@
+using Azure.Messaging.ServiceBus;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+
 namespace func_container;
 
 public class sbtsreceiver
@@ -19,7 +23,7 @@ public class sbtsreceiver
         _logger.LogInformation("Message Body: {body}", message.Body);
         _logger.LogInformation("Message Content-Type: {contentType}", message.ContentType);
 
-            // Complete the message
+        // Complete the message
         await messageActions.CompleteMessageAsync(message);
     }
 }
